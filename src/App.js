@@ -1,7 +1,7 @@
 import { Application } from './App.jsx';
 import Background from './components/background/background.component';
 import Header from './components/header/header.component';
-import Input from './components/input.component.jsx';
+import Input from './components/input/input.component.jsx';
 function App() {
   return (
     <Application>

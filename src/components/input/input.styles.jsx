@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { colors } from '../utilities/style';
+import { MdKeyboardArrowRight } from 'react-icons/md';
+
+import { colors } from '../../utilities/style';
 
 export const FormContainer = styled.div`
   width: 100vw;
@@ -27,12 +29,18 @@ export const InputBox = styled.input`
 `;
 
 export const Button = styled.button`
-  position: absolute;
   border-radius: 0 15px 15px 0;
+  top: 0;
   right: 0;
   z-index: 2;
   border: none;
   cursor: pointer;
   color: ${colors.white};
   background-color: ${colors.veryDarkGrey};
+  width: 17%;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
 `;
