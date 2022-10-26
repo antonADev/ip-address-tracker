@@ -3,7 +3,7 @@ import backgroundImage from '../../images/pattern-bg.png';
 
 export const MainContainer = styled.div`
   width: 100vw;
-  height: 30vh;
+  height: 37vh;
 `;
 
 export const SmallBgnContainer = styled.div`

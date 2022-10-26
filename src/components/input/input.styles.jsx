@@ -4,13 +4,13 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 import { colors } from '../../utilities/style';
 
 export const FormContainer = styled.div`
-  width: 100vw;
+  width: 88vw;
   display: flex;
   justify-content: center;
 `;
 
 export const Form = styled.form`
-  width: 90%;
+  width: 100%;
 `;
 
 export const InputContainer = styled.div`
@@ -18,14 +18,17 @@ export const InputContainer = styled.div`
   position: relative;
 
   & > * {
-    height: 3.5rem;
+    height: 3.6rem;
   }
 `;
 
 export const InputBox = styled.input`
+  font-family: inherit;
   width: 100%;
   border: none;
   border-radius: 15px;
+  padding-left: 1.5rem;
+  font-size: 1.1rem;
 `;
 
 export const Button = styled.button`

@@ -1,10 +1,10 @@
 import React from 'react';
-import { HeaderText } from './header.styles';
+import { HeaderContainer, HeaderText } from './header.styles';
 const Header = () => {
   return (
-    <div>
+    <HeaderContainer>
       <HeaderText>IP Address Tracker</HeaderText>
-    </div>
+    </HeaderContainer>
   );
 };
 
