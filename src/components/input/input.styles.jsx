@@ -27,8 +27,11 @@ export const InputBox = styled.input`
   width: 100%;
   border: none;
   border-radius: 15px;
-  padding-left: 1.5rem;
+  padding: 0 5rem 0 1.5rem;
   font-size: 1.1rem;
+  ::placeholder {
+    font-size: 0.8rem;
+  }
 `;
 
 export const Button = styled.button`
