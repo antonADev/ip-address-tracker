@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+const API_KEY = process.env.REACT_APP_IPIFY_API_KEY;
 
 export const fetchData = createAsyncThunk(
   'ipData/fetchData',
   async (ipAddress) => {
     return fetch(
-      `https://geo.ipify.org/api/v2/country,city?apiKey=at_ZN19nlh6naEBSRJsP28l6lVGpq98G&ipAddress=${ipAddress}`
+      `https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}&ipAddress=${ipAddress}`
     ).then((res) => res.json());
   }
 );
@@ -12,40 +13,40 @@ export const fetchInitialData = createAsyncThunk(
   'ipData/fetchInitialData',
   async () => {
     return fetch(
-      `https://geo.ipify.org/api/v2/country,city?apiKey=at_ZN19nlh6naEBSRJsP28l6lVGpq98G`
+      `https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}`
     ).then((res) => res.json());
   }
 );
 
 const initialState = {
   ipData: {
-    "ip": "8.8.8.8",
-    "location": {
-        "country": "US",
-        "region": "California",
-        "city": "Mountain View",
-        "lat": 37.40599,
-        "lng": -122.078514,
-        "postalCode": "94043",
-        "timezone": "-07:00",
-        "geonameId": 5375481
+    ip: '8.8.8.8',
+    location: {
+      country: 'US',
+      region: 'California',
+      city: 'Mountain View',
+      lat: 37.40599,
+      lng: -122.078514,
+      postalCode: '94043',
+      timezone: '-07:00',
+      geonameId: 5375481,
     },
-    "domains": [
-        "0d2.net",
-        "003725.com",
-        "0f6.b0094c.cn",
-        "007515.com",
-        "0guhi.jocose.cn"
+    domains: [
+      '0d2.net',
+      '003725.com',
+      '0f6.b0094c.cn',
+      '007515.com',
+      '0guhi.jocose.cn',
     ],
-    "as": {
-        "asn": 15169,
-        "name": "Google LLC",
-        "route": "8.8.8.0/24",
-        "domain": "https://about.google/intl/en/",
-        "type": "Content"
+    as: {
+      asn: 15169,
+      name: 'Google LLC',
+      route: '8.8.8.0/24',
+      domain: 'https://about.google/intl/en/',
+      type: 'Content',
     },
-    "isp": "Google LLC"
-},
+    isp: 'Google LLC',
+  },
   status: null,
 };
 
