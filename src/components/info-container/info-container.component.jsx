@@ -3,7 +3,7 @@ import { InfoContainer } from './info-container.styles';
 import InfoElement from '../info-element/info-element.component';
 import { useSelector } from 'react-redux';
 
-import { useGetStartingIpQuery } from '../../features/apiSlice';
+import { useGetStartingIpQuery } from '../../store/ipDataSlice';
 //UNCOMMENT FOR USING createAsyncThunk
 // const Info = () => {
 //   const ipState = useSelector((state) => state.ipData.ipData);
@@ -33,12 +33,33 @@ import { useGetStartingIpQuery } from '../../features/apiSlice';
 const Info = () => {
   // const { data, error, isLoading } = useGetStartingIpQuery();
   // console.log(data);
+  const InitialRender = () => {
+    const { data, error, isLoading } = useGetStartingIpQuery();
+    return error ? (
+      <>Oh no, there was an error</>
+    ) : isLoading ? (
+      <>Loading...</>
+    ) : data ? (
+      <>
+        <InfoElement infoTitle={'IP ADDRESS'} infoData={data.ip} />
+        <InfoElement
+          infoTitle={'LOCATION'}
+          infoData={`${data.location.city}, ${data.location.country} ${
+            data.location.postalCode.length ? data.location.postalCode : ''
+          }`}
+        />
+        <InfoElement
+          infoTitle={'TIMEZONE'}
+          infoData={`UTC ${data.location.timezone}`}
+        />
+        <InfoElement infoTitle={'ISP'} infoData={`${data.isp}`} />
+      </>
+    ) : null;
+  };
   return (
     <InfoContainer>
-      <InfoElement infoTitle={'IP ADDRESS'} infoData={'HOLA'} />
-      <InfoElement infoTitle={'LOCATION'} infoData={'HOLA'} />
-      <InfoElement infoTitle={'TIMEZONE'} infoData={'HOLA'} />
-      <InfoElement infoTitle={'ISP'} infoData={'HOLA'} />
+      {<InitialRender />}
+      {/* <h1>Hola</h1> */}
     </InfoContainer>
   );
 };

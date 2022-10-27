@@ -79,20 +79,19 @@
 
 // export default ipDataSlice.reducer;
 
-import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { apiSlice } from '../features/apiSlice';
-const ipAdapter = createEntityAdapter({
-  selectIp: (ip) => ip.ip,
-});
-
-const initialState = ipAdapter.getInitialState();
 
 export const extendedApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
+    getStartingIp: builder.query({
+      query: () => ``,
+    }),
     getIpBySearch: builder.query({
       query: (ipAddress) => `&ipAddress=${ipAddress}`,
     }),
   }),
 });
 
-export default ipDataSlice.reducer;
+export const { useGetStartingIpQuery, useGetIpBySearchQuery } =
+  extendedApiSlice;

@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { fetchData } from '../../store/ipDataSlice';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
+import { useGetIpBySearchQuery } from '../../store/ipDataSlice';
+
 import {
   FormContainer,
   Form,
@@ -20,7 +22,7 @@ const Input = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!IP_REGEX_EXP.test(ipAddress)) return;
-    dispatch(fetchData(ipAddress));
+    // dispatch(fetchData(ipAddress));
   };
 
   const handleChange = (e) => {
