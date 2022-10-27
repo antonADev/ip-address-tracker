@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import MainContainer from './components/main-container/main-container.component.jsx';
 
 function App() {
+  console.log(process.env.REACT_APP_IPIFY_API_KEY);
   //UNCOMMENT BEFORE PRODUCTION
   // const dispatch = useDispatch();
   // useEffect(() => {

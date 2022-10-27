@@ -79,7 +79,6 @@
 
 // export default ipDataSlice.reducer;
 
-import { createSlice } from '@reduxjs/toolkit';
 import { apiSlice } from '../features/apiSlice';
 
 export const extendedApiSlice = apiSlice.injectEndpoints({

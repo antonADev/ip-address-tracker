@@ -31,8 +31,6 @@ import { useGetStartingIpQuery } from '../../store/ipDataSlice';
 // };
 
 const Info = () => {
-  // const { data, error, isLoading } = useGetStartingIpQuery();
-  // console.log(data);
   const InitialRender = () => {
     const { data, error, isLoading } = useGetStartingIpQuery();
     return error ? (
@@ -56,12 +54,7 @@ const Info = () => {
       </>
     ) : null;
   };
-  return (
-    <InfoContainer>
-      {<InitialRender />}
-      {/* <h1>Hola</h1> */}
-    </InfoContainer>
-  );
+  return <InfoContainer>{<InitialRender />}</InfoContainer>;
 };
 
 export default Info;

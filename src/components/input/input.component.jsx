@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchData } from '../../store/ipDataSlice';
+// import { useDispatch } from 'react-redux';
+// import { fetchData } from '../../store/ipDataSlice';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
 import { useGetIpBySearchQuery } from '../../store/ipDataSlice';
@@ -16,8 +16,6 @@ import { IP_REGEX_EXP } from '../../constants/constants';
 
 const Input = () => {
   const [ipAddress, setIpAddress] = useState('');
-
-  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
