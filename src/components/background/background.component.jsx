@@ -11,9 +11,7 @@ const Background = ({ children }) => {
   return (
     <MainContainer>
       <SmallBgnContainer>{children}</SmallBgnContainer>
-      <MapContainer>
-        <MapComponent />
-      </MapContainer>
+      <MapContainer>{/* <MapComponent /> */}</MapContainer>
     </MainContainer>
   );
 };

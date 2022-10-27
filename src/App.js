@@ -7,6 +7,7 @@ import Info from './components/info-container/info-container.component.jsx';
 import { fetchInitialData } from './store/ipDataSlice.js';
 import { useDispatch } from 'react-redux';
 import MainContainer from './components/main-container/main-container.component.jsx';
+
 function App() {
   //UNCOMMENT BEFORE PRODUCTION
   // const dispatch = useDispatch();

@@ -18,5 +18,4 @@ export const SmallBgnContainer = styled.div`
 
 export const MapContainer = styled.div`
   height: 60%;
-  background-color: red;
 `;
