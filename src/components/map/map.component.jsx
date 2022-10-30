@@ -8,9 +8,7 @@ import { MapUiContainer } from './map.styles';
 import { colors } from '../../utilities/style';
 const MapComponent = () => {
   const { status, data } = useSelector((state) => state.ipData);
-  console.log(data.location);
 
-  // console.log(ipLocationState);
   return (
     <MapUiContainer>
       {status === 'loading' ? <FadeLoader color={colors.darkGrey} /> : null}
