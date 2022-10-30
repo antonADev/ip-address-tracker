@@ -8,10 +8,10 @@ import { fetchInitialData } from './features/ipDataSlice.js';
 import { useDispatch } from 'react-redux';
 import MainContainer from './components/main-container/main-container.component.jsx';
 function App() {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchInitialData());
-  // }, []);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchInitialData());
+  }, []);
   return (
     <Application>
       <Background>
