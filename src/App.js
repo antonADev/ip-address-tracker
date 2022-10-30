@@ -4,15 +4,14 @@ import Background from './components/background/background.component';
 import Header from './components/header/header.component';
 import Input from './components/input/input.component.jsx';
 import Info from './components/info-container/info-container.component.jsx';
-import { fetchInitialData } from './store/ipDataSlice.js';
+import { fetchInitialData } from './features/ipDataSlice.js';
 import { useDispatch } from 'react-redux';
 import MainContainer from './components/main-container/main-container.component.jsx';
 function App() {
-  //UNCOMMENT BEFORE PRODUCTION
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(fetchInitialData());
-  // }, []);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchInitialData());
+  }, []);
   return (
     <Application>
       <Background>

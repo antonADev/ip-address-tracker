@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchData } from '../../store/ipDataSlice';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
+import { fetchSearchedData } from '../../features/ipDataSlice';
 import {
   FormContainer,
   Form,
@@ -10,7 +10,7 @@ import {
   InputBox,
   Button,
 } from './input.styles';
-import { IP_REGEX_EXP } from '../../constants/constants';
+import { IP_REGEX_EXP, URL_REGEX_EXP } from '../../constants/constants';
 
 const Input = () => {
   const [ipAddress, setIpAddress] = useState('');
@@ -19,13 +19,16 @@ const Input = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!IP_REGEX_EXP.test(ipAddress)) return;
-    dispatch(fetchData(ipAddress));
+
+    if (IP_REGEX_EXP.test(ipAddress))
+      dispatch(fetchSearchedData(`&ipAddress=${ipAddress}`));
+    if (URL_REGEX_EXP.test(ipAddress))
+      dispatch(fetchSearchedData(`&domain=${ipAddress}`));
+    return;
   };
 
   const handleChange = (e) => {
     setIpAddress(e.target.value);
-    console.log(ipAddress);
   };
 
   return (

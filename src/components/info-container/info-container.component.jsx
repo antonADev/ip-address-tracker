@@ -1,30 +1,35 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { FadeLoader } from 'react-spinners';
+
+import { colors } from '../../utilities/style';
 import { InfoContainer } from './info-container.styles';
 import InfoElement from '../info-element/info-element.component';
-import { useSelector } from 'react-redux';
 
 const Info = () => {
-  const ipState = useSelector((state) => state.ipData.ipData);
-  console.log(ipState);
-  const statusState = useSelector((state) => state.ipData.status);
-  console.log(statusState);
-  return Object.keys(ipState).length ? (
+  const { status, data, message } = useSelector((state) => state.ipData);
+
+  return (
     <InfoContainer>
-      <InfoElement infoTitle={'IP ADDRESS'} infoData={ipState.ip} />
-      <InfoElement
-        infoTitle={'LOCATION'}
-        infoData={`${ipState.location.city}, ${ipState.location.region} ${
-          ipState.location.postalCode ? ipState.location.postalCode : ''
-        }`}
-      />
-      <InfoElement
-        infoTitle={'TIMEZONE'}
-        infoData={`UTC ${ipState.location.timezone}`}
-      />
-      <InfoElement infoTitle={'ISP'} infoData={ipState.isp} />
+      {status === 'loading' ? <FadeLoader color={colors.darkGrey} /> : null}
+      {status === 'idle' && data ? (
+        <>
+          <InfoElement infoTitle={'IP ADDRESS'} infoData={data.ip} />
+          <InfoElement
+            infoTitle={'LOCATION'}
+            infoData={`${data.location.city}, ${data.location.region} ${
+              data.location.postalCode ? data.location.postalCode : ''
+            }`}
+          />
+          <InfoElement
+            infoTitle={'TIMEZONE'}
+            infoData={`UTC ${data.location.timezone}`}
+          />
+          <InfoElement infoTitle={'ISP'} infoData={data.isp} />
+        </>
+      ) : null}
+      {status === 'error' ? <p>${message}</p> : null}
     </InfoContainer>
-  ) : (
-    ''
   );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import MapComponent from '../map/map.component';
 
+import MapComponent from '../map/map.component';
 import {
   MainContainer,
   SmallBgnContainer,
