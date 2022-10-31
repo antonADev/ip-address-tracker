@@ -42,7 +42,7 @@ const Input = () => {
             placeholder='Search for any IP address or domain'
             onChange={handleChange}
           />
-          <Button type='submit'>
+          <Button aria-label='submit button' type='submit'>
             <MdKeyboardArrowRight />
           </Button>
         </InputContainer>

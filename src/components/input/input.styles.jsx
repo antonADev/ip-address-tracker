@@ -43,7 +43,7 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${colors.veryDarkGrey};
+  background-color: black;
   border: none;
   border-radius: 0 15px 15px 0;
   color: ${colors.white};

@@ -7,7 +7,7 @@ export const InfoElementContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  @media screen and (min-width: 756px) {
+  @media screen and (min-width: 768px) {
     align-items: flex-start;
     justify-content: flex-start;
     height: 50%;
@@ -21,7 +21,7 @@ export const TitleParagraph = styled.p`
   font-size: clamp(0.6rem, -0.875rem + 3.333vw, 0.8rem);
   font-weight: 700;
   letter-spacing: 1px;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
 `;
 
 export const Paragraph = styled.p`

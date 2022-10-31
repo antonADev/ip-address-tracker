@@ -1,8 +1,7 @@
 import React from 'react';
-
-import { Main } from './main-container.styles';
-const MainContainer = ({ children }) => {
-  return <Main>{children}</Main>;
+import { MainBgnContainer } from './main-container.styles';
+const MainBackgroundContainer = ({ children }) => {
+  return <MainBgnContainer>{children}</MainBgnContainer>;
 };
 
-export default MainContainer;
+export default MainBackgroundContainer;

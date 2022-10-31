@@ -10,26 +10,32 @@ const Info = () => {
   const { status, data, message } = useSelector((state) => state.ipData);
 
   return (
-    <InfoContainer>
-      {status === 'loading' ? <FadeLoader color={colors.darkGrey} /> : null}
+    <>
+      {status === 'loading' ? (
+        <InfoContainer status={status}>
+          <FadeLoader color={colors.darkGrey} />
+        </InfoContainer>
+      ) : null}
       {status === 'idle' && data ? (
         <>
-          <InfoElement infoTitle={'IP ADDRESS'} infoData={data.ip} />
-          <InfoElement
-            infoTitle={'LOCATION'}
-            infoData={`${data.location.city}, ${data.location.region} ${
-              data.location.postalCode ? data.location.postalCode : ''
-            }`}
-          />
-          <InfoElement
-            infoTitle={'TIMEZONE'}
-            infoData={`UTC ${data.location.timezone}`}
-          />
-          <InfoElement infoTitle={'ISP'} infoData={data.isp} />
+          <InfoContainer status={status}>
+            <InfoElement infoTitle={'IP ADDRESS'} infoData={data.ip} />
+            <InfoElement
+              infoTitle={'LOCATION'}
+              infoData={`${data.location.city}, ${data.location.region} ${
+                data.location.postalCode ? data.location.postalCode : ''
+              }`}
+            />
+            <InfoElement
+              infoTitle={'TIMEZONE'}
+              infoData={`UTC ${data.location.timezone}`}
+            />
+            <InfoElement infoTitle={'ISP'} infoData={data.isp} />
+          </InfoContainer>
         </>
       ) : null}
       {status === 'error' ? <p>${message}</p> : null}
-    </InfoContainer>
+    </>
   );
 };
 
